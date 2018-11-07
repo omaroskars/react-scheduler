@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import data from './mockData';
+import Scheduler from './Scheduler';
+
+function Resource({ index }) {
+  return (
+    <div style={{
+      width: 200,
+      height: 100,
+    }}>
+      {data[index].name}
+    </div>
+  );
+}
 class App extends Component {
   render() {
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Scheduler
+          resources={data}
+          Resource={Resource}
+        />
       </div>
     );
   }
